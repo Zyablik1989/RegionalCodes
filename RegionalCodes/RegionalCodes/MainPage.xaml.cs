@@ -16,6 +16,28 @@ namespace RegionalCodes
         public MainPage()
         {
             InitializeComponent();
+
+            MenuCarousel.PositionChanged += (object sender, PositionChangedEventArgs e) =>
+                {
+                    ContainerForViews.Children.Clear();
+                    switch (MenuCarousel.Position)
+                    {
+                        case 0:     //Коды
+                            ContainerForViews.Children.Add(new CodesContent());
+                            break;
+                        case 1:     //Справочник
+                            ContainerForViews.Children.Add(new DictionaryContent());
+                            break;
+                        case 2:     //Викторина
+                            ContainerForViews.Children.Add(new QuizContent());
+                            break;
+
+                        default:
+                            break;
+                    }
+                    
+                }
+            ;
         }
     }
 }
