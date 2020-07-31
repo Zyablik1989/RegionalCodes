@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegionalCodes.Managers;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,7 +10,8 @@ namespace RegionalCodes
         public App()
         {
             InitializeComponent();
-
+            RegionalCodesManager.FillRegionalCodes();
+            RegionalCodesManager.FillCodesForDictionary();
             MainPage = new MainPage();
         }
 

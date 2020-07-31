@@ -4,12 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="RegionalCodes.DictionaryContent">
+             x:Class="RegionalCodes.ContentViews.KeyPad" WidthRequest="300" HeightRequest="300">
   <ContentView.Content>
       <StackLayout>
-          <!--<Label Text="СПРАВОЧНИК РЕГИОНОВ" />-->
-
-            <ListView x:Name="CodesList"></ListView>
-        </StackLayout>
+          <Label Text="Hello Xamarin.Forms!" />
+      </StackLayout>
   </ContentView.Content>
 </ContentView>

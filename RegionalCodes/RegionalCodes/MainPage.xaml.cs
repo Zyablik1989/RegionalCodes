@@ -15,6 +15,7 @@ namespace RegionalCodes
     {
         public MainPage()
         {
+
             InitializeComponent();
 
             MenuCarousel.PositionChanged += (object sender, PositionChangedEventArgs e) =>
