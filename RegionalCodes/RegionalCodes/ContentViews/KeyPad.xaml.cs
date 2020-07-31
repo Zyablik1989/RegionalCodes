@@ -16,5 +16,15 @@ namespace RegionalCodes.ContentViews
         {
             InitializeComponent();
         }
+        public delegate void PressedTextHandler(string s);
+
+
+        public event PressedTextHandler ButtonPressed;
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var s = (sender as Button)?.Text;
+            if (s != null) ButtonPressed?.Invoke(s);
+        }
     }
 }

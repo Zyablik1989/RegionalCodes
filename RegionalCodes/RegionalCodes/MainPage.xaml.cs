@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegionalCodes.ContentViews;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace RegionalCodes
                     switch (MenuCarousel.Position)
                     {
                         case 0:     //Коды
-                            ContainerForViews.Children.Add(new CodesContent());
+                            ContainerForViews.Children.Add(new CodesContent(new KeyPad()));
                             break;
                         case 1:     //Справочник
                             ContainerForViews.Children.Add(new DictionaryContent());
@@ -39,6 +40,7 @@ namespace RegionalCodes
                     
                 }
             ;
+            ContainerForViews.Children.Add(new CodesContent(new KeyPad()));
         }
     }
 }

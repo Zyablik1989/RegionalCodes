@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="RegionalCodes.MainPage"
              Visual="Material">
-    <Grid>
+    <Grid >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"  />
@@ -15,7 +15,7 @@
 
 
         <StackLayout BackgroundColor="#FF22C4C4"
-                Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" >
+                Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" >
             <CarouselView x:Name="MenuCarousel"   HeightRequest="80" VerticalOptions="FillAndExpand" >
             <CarouselView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
@@ -26,7 +26,7 @@
             </CarouselView.ItemsSource>
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                        <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" >
+                        <StackLayout HorizontalOptions="Fill"  VerticalOptions="Fill" >
 
                             <Label Text="{Binding .}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF22D4C4"  VerticalOptions="FillAndExpand" Margin="10" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" />
                     </StackLayout>
@@ -35,7 +35,7 @@
         </CarouselView>
  
     </StackLayout>
-        <StackLayout x:Name="ContainerForViews" Grid.Row="1" BackgroundColor="#FF22B4C4">
+        <StackLayout VerticalOptions="FillAndExpand" x:Name="ContainerForViews" Grid.Row="1" BackgroundColor="#FF22B4C4">
 
         </StackLayout>
     </Grid>
