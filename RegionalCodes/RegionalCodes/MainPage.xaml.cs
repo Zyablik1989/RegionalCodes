@@ -31,7 +31,7 @@ namespace RegionalCodes
                             ContainerForViews.Children.Add(new DictionaryContent());
                             break;
                         case 2:     //Викторина
-                            ContainerForViews.Children.Add(new QuizContent());
+                            ContainerForViews.Children.Add(new QuizContent(new KeyPad()));
                             break;
 
                         default:

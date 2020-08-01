@@ -14,16 +14,6 @@ namespace RegionalCodes
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CodesContent : ContentView
     {
-        public CodesContent()
-        {
-            InitializeComponent();
-            //var keys = new KeyPad() {};
-            //keys.ButtonPressed += GetPressedButtonText;
-            //ContainerForKeyPad.Children.Add(keys);
-            
-
-        }
-
         private string CodeToRecognize = string.Empty;
 
         public CodesContent(KeyPad keyPad)
