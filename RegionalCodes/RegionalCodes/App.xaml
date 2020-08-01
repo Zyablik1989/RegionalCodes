@@ -6,10 +6,12 @@
              mc:Ignorable="d"
              x:Class="RegionalCodes.App">
     <Application.Resources>
-        <ResourceDictionary>
+        <!--<ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="FontSize" Value= "50"/>
+                <Setter Property= "BackgroundColor" Value = "Gray"/>
+                <Setter Property= "TextColor" Value = "Black"/>
+                <Setter Property= "FontSize" Value = "50"/>
             </Style>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
     </Application.Resources>
 </Application>

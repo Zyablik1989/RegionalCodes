@@ -1,4 +1,5 @@
 ﻿using RegionalCodes.ContentViews;
+using RegionalCodes.Managers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

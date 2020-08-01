@@ -7,10 +7,35 @@
              x:Class="RegionalCodes.DictionaryContent"
              Visual="Material">
   <ContentView.Content>
-      <StackLayout>
+      <StackLayout Spacing="0"
+                   BackgroundColor="#70AAAACC">
           <!--<Label Text="СПРАВОЧНИК РЕГИОНОВ" />-->
 
-            <ListView x:Name="CodesList"></ListView>
+            <ListView x:Name="CodesList">
+
+                <!--<ListView.ItemTemplate>
+                    <DataTemplate>
+                        <
+                    </DataTemplate>
+                    
+                </ListView.ItemTemplate>-->
+
+                <!--<Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="20" />
+                        -->
+                <!--<Setter Property="ClipToBounds" Value="True"></Setter>-->
+                <!--<Setter Property="Clip" Value=""></Setter>-->
+                <!--
+                        <Setter Property="ClipToBounds" Value="False"></Setter>
+                    </Style>-->
+                <!--<ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <Label TextColor="Black" ></Label>
+                            </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>-->
+            </ListView>
         </StackLayout>
   </ContentView.Content>
 </ContentView>

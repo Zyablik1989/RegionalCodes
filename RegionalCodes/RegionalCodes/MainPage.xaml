@@ -3,20 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              mc:Ignorable="d"
              x:Class="RegionalCodes.MainPage"
-             Visual="Material">
-    <Grid >
+             Visual="Material"
+             >
+    <Grid RowSpacing="0">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"  />
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
+        
 
-
-        <StackLayout BackgroundColor="#FF22C4C4"
+        <StackLayout BackgroundColor="#00000000" Spacing="0"
                 Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" >
-            <CarouselView x:Name="MenuCarousel"   HeightRequest="80" VerticalOptions="FillAndExpand" >
+
+            <Grid>
+                <magic:GradientView VerticalOptions="Fill" >
+                    <magic:GradientView.GradientSource>
+                        <magic:CssGradientSource>
+                            <x:String>
+                                <![CDATA[
+                                       linear-gradient(45deg, rgba(182, 71, 209, 0.36) 0%, rgba(182, 71, 209, 0.36) 23%, rgba(156, 49, 197, 0.36) 23%, rgba(156, 49, 197, 0.36) 26%, rgba(221, 104, 228, 0.36) 26%, rgba(221, 104, 228, 0.36) 31%, rgba(234, 115, 234, 0.36) 31%, rgba(234, 115, 234, 0.36) 44%, rgba(208, 93, 222, 0.36) 44%, rgba(208, 93, 222, 0.36) 50%, rgba(169, 60, 203, 0.36) 50%, rgba(169, 60, 203, 0.36) 72%, rgba(195, 82, 215, 0.36) 72%, rgba(195, 82, 215, 0.36) 84%, rgba(247, 126, 240, 0.36) 84%, rgba(247, 126, 240, 0.36) 100%), linear-gradient(45deg, rgba(233, 117, 183, 0.34) 0%, rgba(233, 117, 183, 0.34) 12.5%, rgba(168, 68, 213, 0.34) 12.5%, rgba(168, 68, 213, 0.34) 25%, rgba(189, 85, 203, 0.34) 25%, rgba(189, 85, 203, 0.34) 37.5%, rgba(255, 133, 173, 0.34) 37.5%, rgba(255, 133, 173, 0.34) 50%, rgba(102, 20, 243, 0.34) 50%, rgba(102, 20, 243, 0.34) 62.5%, rgba(124, 36, 233, 0.34) 62.5%, rgba(124, 36, 233, 0.34) 75%, rgba(211, 101, 193, 0.34) 75%, rgba(211, 101, 193, 0.34) 87.5%, rgba(146, 52, 223, 0.34) 87.5%, rgba(146, 52, 223, 0.34) 100%), linear-gradient(192deg, rgb(214, 170, 198), rgb(119, 2, 176))
+                                    ]]>
+                            </x:String>
+                        </magic:CssGradientSource>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
+                <CarouselView x:Name="MenuCarousel"  VerticalOptions="FillAndExpand" >
             <CarouselView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                         <x:String>🚗 КОДЫ РЕГИОНОВ ►</x:String>
@@ -26,17 +41,33 @@
             </CarouselView.ItemsSource>
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                        <StackLayout HorizontalOptions="Fill"  VerticalOptions="Fill" >
+                        
+                            <StackLayout HorizontalOptions="Fill"  VerticalOptions="Fill"  Spacing="0">
 
-                            <Label Text="{Binding .}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF22D4C4"  VerticalOptions="FillAndExpand" Margin="10" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" />
+                            <Label Text="{Binding .}" HorizontalOptions="FillAndExpand" BackgroundColor="#70AAAACC" FontAttributes="Bold" TextColor="Black"  VerticalOptions="FillAndExpand" Margin="10" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" />
                     </StackLayout>
-                </DataTemplate>
+                    </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
+                </Grid>
  
-    </StackLayout>
-        <StackLayout VerticalOptions="FillAndExpand" x:Name="ContainerForViews" Grid.Row="1" BackgroundColor="#FF22B4C4">
+    </StackLayout >
+        <StackLayout Spacing="0" VerticalOptions="FillAndExpand"  Grid.Row="1" >
+            <Grid VerticalOptions="FillAndExpand">
+                <magic:GradientView VerticalOptions="Fill" >
+                    <magic:GradientView.GradientSource>
+                        <magic:CssGradientSource>
+                            <x:String>
+                                <![CDATA[
+                                  linear-gradient(135deg, rgba(98, 138, 224, 0.46) 0%, rgba(98, 138, 224, 0.46) 14.29%, rgba(107, 116, 201, 0.46) 14.29%, rgba(107, 116, 201, 0.46) 28.57%, rgba(115, 94, 178, 0.46) 28.57%, rgba(115, 94, 178, 0.46) 42.86%, rgba(124, 73, 156, 0.46) 42.86%, rgba(124, 73, 156, 0.46) 57.14%, rgba(133, 51, 133, 0.46) 57.14%, rgba(133, 51, 133, 0.46) 71.43%, rgba(141, 29, 110, 0.46) 71.43%, rgba(141, 29, 110, 0.46) 85.72%, rgba(150, 7, 87, 0.46) 85.72%, rgba(150, 7, 87, 0.46) 100%), linear-gradient(45deg, rgb(60, 13, 119) 0%, rgb(60, 13, 119) 14.29%, rgb(50, 25, 138) 14.29%, rgb(50, 25, 138) 28.57%, rgb(41, 36, 156) 28.57%, rgb(41, 36, 156) 42.86%, rgb(31, 48, 175) 42.86%, rgb(31, 48, 175) 57.14%, rgb(21, 59, 194) 57.14%, rgb(21, 59, 194) 71.43%, rgb(12, 71, 212) 71.43%, rgb(12, 71, 212) 85.72%, rgb(2, 82, 231) 85.72%, rgb(2, 82, 231) 100%)
+                                    ]]>
+                            </x:String>
+                        </magic:CssGradientSource>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
 
+                <StackLayout Spacing="0" x:Name="ContainerForViews"></StackLayout>
+            </Grid>
         </StackLayout>
     </Grid>
 
