@@ -24,6 +24,14 @@ namespace RegionalCodes
             keyPad.VerticalOptions = LayoutOptions.FillAndExpand;
             keyPad.ButtonPressed += GetPressedButtonText;
             ContainerForKeyPad.Children.Add(keyPad);
+            QuizGameManager.GuessWasCorrect += GuessWasCorrect;
+            QuizGameManager.GameIsOver += GameOver;
+            QuizGameManager.SecondPassed += GameSecondPassed;
+            QuizGameManager.aTimer.Elapsed += QuizGameManager.TimerSecondIsPassed;
+            QuizGameManager.aTimer.AutoReset = true;
+            QuizGameManager.aTimer.Enabled = true;
+            QuizGameManager.TotalTimeLeft = new TimeSpan();
+            QuizGameManager.RoundTimeLeft = new TimeSpan(0, 0, 10);
         }
 
         private void GameOver()
@@ -41,21 +49,21 @@ namespace RegionalCodes
             Dispatcher?.BeginInvokeOnMainThread((delegate
             {
                 lbRoundTimeLeft.Text =
-                    QuizManager.RoundTimeLeft.ToString(@"hh\:mm\:ss");
+                    QuizGameManager.RoundTimeLeft.ToString(@"hh\:mm\:ss");
                 lbTotalTimeLeft.Text =
-                    QuizManager.TotalTimeLeft.ToString(@"hh\:mm\:ss");
+                    QuizGameManager.TotalTimeLeft.ToString(@"hh\:mm\:ss");
             }));
 
         }
 
-        private async Task GuessWasCorrect()
+        private async void GuessWasCorrect()
         {
 
             await Task.Run(() => { Thread.Sleep(2000); });
-            QuizManager.NextRound();
+            QuizGameManager.NextRound();
             Dispatcher?.BeginInvokeOnMainThread((delegate
             {
-                lbRegionName.Text = QuizManager.CurrentRegion.Region;
+                lbRegionName.Text = QuizGameManager.CurrentRegion.Region;
                 CodeToGuess = string.Empty;
                 lbGuessInput.Text = CodeToGuess;
             }));
@@ -83,30 +91,31 @@ namespace RegionalCodes
             int Code = 0;
             if (int.TryParse(CodeToGuess, out Code))
             {
-                QuizManager.GuessAttempt(Code);
+                QuizGameManager.GuessAttempt(Code);
             }
         }
 
         private void RestartButtonPressed(object sender, EventArgs e)
         {
+        
 
 
+            //QuizManager = new QuizGameManager();
 
-            QuizManager = new QuizGameManager();
+            //Delegate[] clientList = QuizManager.GuessWasCorrect.GetInvocationList();
+            //if (QuizManager.GuessWasCorrect != null)
+            //    foreach (var d in QuizManager.GuessWasCorrect.GetInvocationList())
+            //        QuizManager.GuessWasCorrect -= (d as this.GuessWasCorrect);
 
-            QuizManager.GuessWasCorrect += GuessWasCorrect;
-            QuizManager.GameIsOver += GameOver;
-            QuizManager.SecondPassed += GameSecondPassed;
-
-            QuizManager.Start();
+            QuizGameManager.Restart();
 
             Dispatcher?.BeginInvokeOnMainThread((delegate
             {
-                lbRoundTimeLeft.Text = 
-                QuizManager.RoundTimeLeft.ToString(@"hh\:mm\:ss");
+                lbRoundTimeLeft.Text =
+                    QuizGameManager.RoundTimeLeft.ToString(@"hh\:mm\:ss");
             lbTotalTimeLeft.Text =
-                QuizManager.TotalTimeLeft.ToString(@"hh\:mm\:ss");
-            lbRegionName.Text = QuizManager.CurrentRegion.Region;
+                QuizGameManager.TotalTimeLeft.ToString(@"hh\:mm\:ss");
+            lbRegionName.Text = QuizGameManager.CurrentRegion.Region;
             CodeToGuess = string.Empty;
             lbGuessInput.Text = CodeToGuess;
             }));

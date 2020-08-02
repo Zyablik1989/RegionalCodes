@@ -21,7 +21,7 @@ namespace RegionalCodes.Managers
         {
             CodesForDictionary = new List<string>();
 
-            foreach (var regCode in RegionalCodes.Select(x=>x.Region).Distinct())
+            foreach (var regCode in RegionalCodes.Select(x=>x.Region).Distinct().OrderBy(x=>x))
             {
                 CodesForDictionary.Add(
                     ( regCode + " — " + 

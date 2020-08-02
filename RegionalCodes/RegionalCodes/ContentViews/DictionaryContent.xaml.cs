@@ -28,30 +28,30 @@ namespace RegionalCodes
                 regions.Add(new regionString { regstring = region});
             }
 
-            TextCell textCell1 = new TextCell { TextColor = Color.Black, DetailColor = Color.Green };
-            textCell1.SetBinding(TextCell.TextProperty, "regstring");
+            //TextCell textCell1 = new TextCell { TextColor = Color.Black, DetailColor = Color.Green };
+            //textCell1.SetBinding(TextCell.TextProperty, "regstring");
 
-            var a = new DataTemplate(() =>
-            {
+            //var a = new DataTemplate(() =>
+            //{
 
-                TextCell textCell = new TextCell {TextColor = Color.Black, DetailColor = Color.Green};
-                textCell.SetBinding(TextCell.TextProperty, "regstring");
-                //Binding companyBinding = new Binding { Path = "Company", StringFormat = "Флагман от компании {0}" };
-                //textCell.SetBinding(TextCell.DetailProperty, companyBinding);
-                return textCell;
-                //Label titleLabel = new Label {FontSize = 18};
-                //titleLabel.SetBinding(Label.TextProperty, "regstring");
-                //return new ViewCell
-                //{
-                //   View = titleLabel
-                //    //View = new StackLayout
-                //    //{
-                //    //    //Padding = new Thickness(0, 5),
-                //    //    Orientation = StackOrientation.Vertical,
-                //    //    Children = { titleLabel }
-                //    //}
-                //};
-            });
+            //    TextCell textCell = new TextCell {TextColor = Color.Black, DetailColor = Color.Green};
+            //    textCell.SetBinding(TextCell.TextProperty, "regstring");
+            //    //Binding companyBinding = new Binding { Path = "Company", StringFormat = "Флагман от компании {0}" };
+            //    //textCell.SetBinding(TextCell.DetailProperty, companyBinding);
+            //    return textCell;
+            //    //Label titleLabel = new Label {FontSize = 18};
+            //    //titleLabel.SetBinding(Label.TextProperty, "regstring");
+            //    //return new ViewCell
+            //    //{
+            //    //   View = titleLabel
+            //    //    //View = new StackLayout
+            //    //    //{
+            //    //    //    //Padding = new Thickness(0, 5),
+            //    //    //    Orientation = StackOrientation.Vertical,
+            //    //    //    Children = { titleLabel }
+            //    //    //}
+            //    //};
+            //});
             var v = new ListView
                 {
                     HasUnevenRows = true,
@@ -79,10 +79,11 @@ namespace RegionalCodes
                         //};
                     })
                 };
-            v.ItemTemplate = a;
+            //v.ItemTemplate = a;
             CodesList = v;
-                //CodesList.ItemsSource = labels;
-                //CodesList.ItemsSource = RegionalCodesManager.CodesForDictionary;
+            this.Content = new StackLayout {Children = {CodesList}};
+            //CodesList.ItemsSource = labels;
+            //CodesList.ItemsSource = RegionalCodesManager.CodesForDictionary;
 
             //CodesList.ItemsSource =
             //    RegionalCodesManager.CodesForDictionary
