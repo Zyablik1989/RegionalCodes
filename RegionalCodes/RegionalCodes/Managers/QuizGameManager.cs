@@ -15,6 +15,8 @@ namespace RegionalCodes.Managers
         public static TimeSpan TotalTimeLeft { get; set; } = new TimeSpan();
         public static TimeSpan RoundTimeLeft { get; set; } = new TimeSpan(0, 0, 10);
 
+        public static bool SubscribedTimer { get; set; } = false;
+
         public static bool isCountingGameTime { get; set; } = false;
 
         public static RegionalCode.Entities.RegionalCode CurrentRegion { get; set; }
@@ -49,14 +51,14 @@ namespace RegionalCodes.Managers
 
         public static void NextRound()
         {
-            processing = true;
+         
             CurrentRegion =
                 RegionalCodesManager.RegionalCodes.ElementAt
                     (new Random().Next(0, RegionalCodesManager.RegionalCodes.Count - 1));
             CurrentCorrectAnswers = RegionalCodesManager.RegionalCodes
                 .Where(x => x.Region == CurrentRegion.Region).Select(x => x.Code).ToList();
             isCountingGameTime = true;
-            processing = false;
+           
 
         }
 
@@ -64,7 +66,7 @@ namespace RegionalCodes.Managers
         {
             if (isCountingGameTime && !processing)
             {
-                processing = true;
+                
                 if (RoundTimeLeft > new TimeSpan())
                 {
                     RoundTimeLeft = RoundTimeLeft.Add(new TimeSpan(0,0,-1));
@@ -81,13 +83,13 @@ namespace RegionalCodes.Managers
                     GameOver();
                     
                 }
-                processing = false;
+                
             }
         }
 
         public static void GuessAttempt(int Guess)
         {
-            processing = true;
+            
             if (isCountingGameTime && CurrentCorrectAnswers.Any(x => x == Guess))
             {
                 isCountingGameTime = false;
@@ -95,7 +97,7 @@ namespace RegionalCodes.Managers
                 RoundTimeLeft = new TimeSpan(0, 0, 10);
                 GuessWasCorrect?.Invoke();
             }
-            processing = false;
+            
         }
 
         private static void GameOver()

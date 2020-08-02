@@ -21,6 +21,10 @@ namespace RegionalCodes
 
         public QuizContent(KeyPad keyPad)
         {
+            //Delegate[] clientList = QuizManager.GuessWasCorrect.GetInvocationList();
+            //if (QuizManager.GuessWasCorrect != null)
+            //    foreach (var d in QuizManager.GuessWasCorrect.GetInvocationList())
+            //        QuizManager.GuessWasCorrect -= (d as this.GuessWasCorrect);
             InitializeComponent();
             keyPad.VerticalOptions = LayoutOptions.FillAndExpand;
             keyPad.ButtonPressed += GetPressedButtonText;
@@ -28,7 +32,14 @@ namespace RegionalCodes
             QuizGameManager.GuessWasCorrect += GuessWasCorrect;
             QuizGameManager.GameIsOver += GameOver;
             QuizGameManager.SecondPassed += GameSecondPassed;
-            QuizGameManager.aTimer.Elapsed += QuizGameManager.TimerSecondIsPassed;
+            QuizGameManager.isCountingGameTime = false;
+
+            if (!QuizGameManager.SubscribedTimer)
+            {
+                QuizGameManager.aTimer.Elapsed += QuizGameManager.TimerSecondIsPassed;
+                QuizGameManager.SubscribedTimer = true;
+            }
+
             QuizGameManager.aTimer.AutoReset = true;
             QuizGameManager.aTimer.Enabled = true;
             QuizGameManager.TotalTimeLeft = new TimeSpan();
@@ -203,10 +214,7 @@ namespace RegionalCodes
 
             //QuizManager = new QuizGameManager();
 
-            //Delegate[] clientList = QuizManager.GuessWasCorrect.GetInvocationList();
-            //if (QuizManager.GuessWasCorrect != null)
-            //    foreach (var d in QuizManager.GuessWasCorrect.GetInvocationList())
-            //        QuizManager.GuessWasCorrect -= (d as this.GuessWasCorrect);
+
 
             QuizGameManager.Restart();
 

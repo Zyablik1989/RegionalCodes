@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:ads ="clr-namespace:RegionalCodes.Controls"
              mc:Ignorable="d"
              x:Class="RegionalCodes.MainPage"
              Visual="Material"
@@ -13,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"  />
             <RowDefinition Height="8*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
 
@@ -34,9 +36,9 @@
                 <CarouselView x:Name="MenuCarousel"  VerticalOptions="FillAndExpand" >
             <CarouselView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                        <x:String>🚗 КОДЫ РЕГИОНОВ ►</x:String>
-                        <x:String>◄ 📖 СПРАВОЧНИК ►</x:String>
-                        <x:String>◄ ❓ ВИКТОРИНА</x:String>
+                        <x:String>🚗 КОДЫ РЕГИОНОВ ►►</x:String>
+                        <x:String>◄◄ 📖 СПРАВОЧНИК ►►</x:String>
+                        <x:String>◄◄ ❓ ВИКТОРИНА</x:String>
                 </x:Array>
             </CarouselView.ItemsSource>
             <CarouselView.ItemTemplate>
@@ -68,6 +70,11 @@
 
                 <StackLayout Spacing="0" x:Name="ContainerForViews"></StackLayout>
             </Grid>
+        </StackLayout>
+        <StackLayout HorizontalOptions="EndAndExpand" Grid.Row="2">
+            <ads:AdControlView HorizontalOptions="EndAndExpand">
+
+            </ads:AdControlView>
         </StackLayout>
     </Grid>
 
