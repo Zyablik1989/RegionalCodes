@@ -81,7 +81,7 @@ namespace RegionalCodes
                 };
             //v.ItemTemplate = a;
             CodesList = v;
-            this.Content = new StackLayout {Children = {CodesList}};
+            this.Content = new StackLayout {BackgroundColor= Color.FromHex("#70AAAACC"),  Children = {CodesList}};
             //CodesList.ItemsSource = labels;
             //CodesList.ItemsSource = RegionalCodesManager.CodesForDictionary;
 

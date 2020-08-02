@@ -18,6 +18,7 @@ namespace RegionalCodes
 
         private QuizGameManager QuizManager { get; set; } = new QuizGameManager();
 
+
         public QuizContent(KeyPad keyPad)
         {
             InitializeComponent();
@@ -36,9 +37,12 @@ namespace RegionalCodes
 
         private void GameOver()
         {
+            Color Reder = Color.FromHex("#95FFAACC");
+
             Dispatcher?.BeginInvokeOnMainThread((delegate
             {
                 lbRegionName.Text = "ВЫ НЕ УСПЕЛИ";
+                sRegion.BackgroundColor = Reder;
             }));
         }
 
@@ -58,14 +62,105 @@ namespace RegionalCodes
 
         private async void GuessWasCorrect()
         {
+            Color Basic = Color.FromHex("#70AAAACC");
+            Color Greener = Color.FromHex("#70AAFFCC");
+            Color Black = Color.Black;
 
-            await Task.Run(() => { Thread.Sleep(2000); });
+
+            //Надпись
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRegionName.Text = "ВЕРНО!";
+                sRegion.BackgroundColor = Greener;
+            }));
+            await Task.Run(() => { Thread.Sleep(500); });
+
+
+            //Номер
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                sGuess.BackgroundColor = Greener;
+            }));
+            await Task.Run(() => { Thread.Sleep(250); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                sGuess.BackgroundColor = Basic;
+            }));
+            await Task.Run(() => { Thread.Sleep(250); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                sGuess.BackgroundColor = Greener;
+            }));
+            await Task.Run(() => { Thread.Sleep(250); });
+
+            //Время
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Greener;
+                lbTotalTimeLeft.TextColor = Greener;
+            }));
+            await Task.Run(() => { Thread.Sleep(150); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Black;
+                lbRoundTimeLeft.TextColor = Black;
+            }));
+            await Task.Run(() => { Thread.Sleep(150); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Greener;
+                lbTotalTimeLeft.TextColor = Greener;
+            }));
+            await Task.Run(() => { Thread.Sleep(150); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Black;
+                lbRoundTimeLeft.TextColor = Black;
+            }));
+            await Task.Run(() => { Thread.Sleep(150); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Greener;
+                lbTotalTimeLeft.TextColor = Greener;
+            }));
+            await Task.Run(() => { Thread.Sleep(150); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Black;
+                lbRoundTimeLeft.TextColor = Black;
+            }));
+            await Task.Run(() => { Thread.Sleep(150); });
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Greener;
+                lbTotalTimeLeft.TextColor = Greener;
+            }));
+            await Task.Run(() => { Thread.Sleep(150); });
+
+
             QuizGameManager.NextRound();
             Dispatcher?.BeginInvokeOnMainThread((delegate
             {
                 lbRegionName.Text = QuizGameManager.CurrentRegion.Region;
                 CodeToGuess = string.Empty;
                 lbGuessInput.Text = CodeToGuess;
+            }));
+
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Black;
+                lbTotalTimeLeft.TextColor = Black;
+                sRegion.BackgroundColor = Basic;
+                sGuess.BackgroundColor = Basic;
             }));
 
         }
@@ -97,8 +192,14 @@ namespace RegionalCodes
 
         private void RestartButtonPressed(object sender, EventArgs e)
         {
-        
-
+            Color Basic = Color.FromHex("#70AAAACC");
+            Dispatcher?.BeginInvokeOnMainThread((delegate
+            {
+                lbRoundTimeLeft.TextColor = Color.Black;
+                lbTotalTimeLeft.TextColor = Color.Black;
+                sRegion.BackgroundColor = Basic;
+                sGuess.BackgroundColor = Basic;
+            }));
 
             //QuizManager = new QuizGameManager();
 
